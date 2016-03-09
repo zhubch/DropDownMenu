@@ -8,7 +8,7 @@
 用`swift`实现的一个方便、实用的下拉菜单控件，也可以用来实现
 `ComboBox`的效果
 ## 效果演示
-![](ScreenShot/screenshot2.gif)
+![](ScreenShot/ScreenShot2.gif)
 ## 特色
  - 支持`Storyboard/Xib`可视化设置属性，所见即所得
  - 可以根据需要决定是否允许用户手动编辑文字
