@@ -46,7 +46,7 @@ class ViewController: UIViewController ,DropDownMenuDelegate{
         menu2.showBorder = false //不显示边框
         
         menu3.options = ["1992","1993","1994","1995","1996","1997","1998"]
-        menu3.defaultValue = "1992"
+        menu3.defaultValue = "1992" //设置默认值
         menu3.editable = false
         menu3.showBorder = false
         

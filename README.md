@@ -15,43 +15,25 @@
  - 可以根据需要决定是否允许用户手动编辑文字
  - 下拉按钮的图片、字体、文本颜色、边框等属性可以自己设置，你可以定制出你自己需要的样式
 
+	    
+## 安装
+
+### Cocoapods
+
+1. 在 Podfile 中添加 `pod "DropDownMenu"`。
+2. 执行 `pod install` 或 `pod update`。
+
+### 手动安装
+
+1. 下载 DropDownMenu 文件夹内的所有内容。
+2. 将 DropDownMenu 内的源文件添加(拖放)到你的工程。
 
 ##使用
 添加DropDownMenu 到你的布局文件，如下
 
-##关于我
-简书[dongjunkun](http://www.jianshu.com/users/f07458c1a8f3/latest_articles)
-abel.textLayout = layout;
-	    
-安装
-==============
-
-### Cocoapods
-
-1. 在 Podfile 中添加 `pod "YYText"`。
-2. 执行 `pod install` 或 `pod update`。
-3. 导入 \<YYText/YYText.h\>。
+## 系统要求
+该项目最低支持 iOS 8.0。
 
 
-### 手动安装
-
-1. 下载 YYText 文件夹内的所有内容。
-2. 将 YYText 内的源文件添加(拖放)到你的工程。
-3. 链接以下 frameworks:
-    * UIKit
-    * CoreFoundation
-    * CoreText
-    * QuartzCore
-    * Accelerate
-    * MobileCoreServices
-4. 导入 `YYText.h`。
-
-
-系统要求
-==============
-该项目最低支持 iOS 6.0。
-
-
-许可证
-==============
+## 许可证
 `DropDownMenu` 使用 MIT 许可证，详情见 LICENSE 文件。
