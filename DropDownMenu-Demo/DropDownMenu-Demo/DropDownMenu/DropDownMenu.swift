@@ -164,7 +164,7 @@ protocol DropDownMenuDelegate{
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentTextField.frame = CGRect(x: 5, y: 5, width: self.frame.size.width - 40, height: self.frame.size.height - 10)
+        contentTextField.frame = CGRect(x: 15, y: 5, width: self.frame.size.width - 50, height: self.frame.size.height - 10)
         pullDownButton.frame = CGRect(x: self.frame.size.width - 35, y: 5, width: 30, height: 30)
 //        pullDownButton.snp_makeConstraints { (make) -> Void in
 //            make.width.height.equalTo(30)

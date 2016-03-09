@@ -1,6 +1,5 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
-[![Cocoapods](http://img.shields.io/cocoapods/v/YYText.svg?style=flat)](http://cocoapods.org/?q= YYText)&nbsp;
-[![Cocoapods](http://img.shields.io/cocoapods/p/YYText.svg?style=flat)](http://cocoapods.org/?q= YYText)&nbsp;
+[![Cocoapods](http://img.shields.io/cocoapods/p/YYText.svg?style=flat)]()&nbsp;
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 ## DropDownMenu
@@ -9,7 +8,7 @@
 用`swift`实现的一个方便、实用的下拉菜单控件，也可以用来实现
 `ComboBox`的效果
 ## 效果演示
-![](ScreenShot/screenshot1.gif)
+![](ScreenShot/screenshot2.gif)
 ## 特色
  - 支持`Storyboard/Xib`可视化设置属性，所见即所得
  - 可以根据需要决定是否允许用户手动编辑文字
