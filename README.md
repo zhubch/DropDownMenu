@@ -24,9 +24,10 @@
 ### 手动安装
 
 1. 下载 DropDownMenu 文件夹内的所有内容。
-2. 将 DropDownMenu 内的源文件添加(拖放)到你的工程。
+2. 将 DropDownMenu 文件夹添加(拖放)到你的工程。
 
 ##使用
+
 添加DropDownMenu 到你的布局文件，如下
 
 ## 系统要求
