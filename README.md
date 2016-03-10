@@ -27,7 +27,9 @@
 
 ##使用
 
-1. 在storyboard中添加一个`View`然后设置Class为`DropDownMenu`，然后选中它，在右边进行设置。![](ScreenShot/ScreenShot1.png)
+1. 在storyboard中添加一个`View`然后设置Class为`DropDownMenu`，然后选中它，在右边进行设置。
+![](ScreenShot/ScreenShot1.png)
+
 
 2. 在代码中设置它的其他属性
 
@@ -51,7 +53,9 @@
     //编辑完成后回调
     func dropDownMenu(menu: DropDownMenu!, didInput text: String!) {
         print("\(menu) input text \(text)")
-    }```
+    }
+    ```
+
 
 ## 系统要求
 该项目最低支持 iOS 8.0。
