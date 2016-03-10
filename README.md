@@ -36,7 +36,9 @@
    menu.defaultValue = "1992" //设置默认值
    menu.editable = false //禁止编辑
    menu.showBorder = false //不显示边框
-   menu.delegate = self //设置代理```
+   menu.delegate = self //设置代理
+   ```
+   
    
 3. 实现协议中的回调方法
 
