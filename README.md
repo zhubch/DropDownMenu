@@ -1,6 +1,5 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
 [![Cocoapods](http://img.shields.io/cocoapods/p/YYText.svg?style=flat)]()&nbsp;
-[![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 # DropDownMenu
 
@@ -28,7 +27,29 @@
 
 ##使用
 
-添加DropDownMenu 到你的布局文件，如下
+1. 在storyboard中添加一个`View`然后设置Class为`DropDownMenu`，然后选中它，在右边进行设置。![](ScreenShot/ScreenShot1.png)
+
+2. 在代码中设置它的其他属性
+
+	```           
+	menu.options = ["1992","1993","1994","1995","1996","1997","1998"]//设置下拉列表项数据
+   menu.defaultValue = "1992" //设置默认值
+   menu.editable = false //禁止编辑
+   menu.showBorder = false //不显示边框
+   menu.delegate = self //设置代理```
+   
+3. 实现协议中的回调方法
+
+	```    
+	//选择完后回调
+    func dropDownMenu(menu: DropDownMenu!, didChoose index: Int) {
+        print("\(menu) choosed at index \(index)")
+    }
+    
+    //编辑完成后回调
+    func dropDownMenu(menu: DropDownMenu!, didInput text: String!) {
+        print("\(menu) input text \(text)")
+    }```
 
 ## 系统要求
 该项目最低支持 iOS 8.0。
@@ -36,3 +57,4 @@
 
 ## 许可证
 `DropDownMenu` 使用 MIT 许可证，详情见 LICENSE 文件。
+
