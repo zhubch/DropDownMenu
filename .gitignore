@@ -1,3 +1,5 @@
 *.ipa
 *.xcuserstate
 *.DS_Store
+
+*.xcbkptlist

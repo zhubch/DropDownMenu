@@ -1,6 +1,5 @@
 //
 //  DropDownMenu.swift
-//  DropDownMenu-Demo
 //
 //  Created by zhubch on 3/8/16.
 //
@@ -27,36 +26,36 @@
 
 import UIKit
 
-protocol DropDownMenuDelegate{
+public protocol DropDownMenuDelegate{
     func dropDownMenu(menu:DropDownMenu!, didInput text:String!)
     func dropDownMenu(menu:DropDownMenu!, didChoose index:Int)
 }
 
-@IBDesignable class DropDownMenu: UIView ,UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
+@IBDesignable public class DropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
     
-    var delegate:DropDownMenuDelegate?
+    public var delegate:DropDownMenuDelegate?
     
-    var options:Array<String> = [] //菜单项数据
+    public var options:Array<String> = [] //菜单项数据
     
-    @IBInspectable var defaultValue:String? { //默认值。这不是placeholder!!
+    @IBInspectable public var defaultValue:String? { //默认值。这不是placeholder!!
         didSet {
             contentTextField.text = defaultValue
         }
     }
     
-    @IBInspectable var textColor:UIColor?{ //输入框和下拉列表项中文本颜色
+    @IBInspectable public var textColor:UIColor?{ //输入框和下拉列表项中文本颜色
         didSet {
             contentTextField.textColor = textColor
         }
     }
     
-    var font:UIFont?{ //输入框和下拉列表项中字体
+    public var font:UIFont?{ //输入框和下拉列表项中字体
         didSet {
             contentTextField.font = font
         }
     }
     
-    var showBorder:Bool = true { //是否显示边框，默认显示
+    public var showBorder:Bool = true { //是否显示边框，默认显示
         didSet {
             if showBorder {
                 layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -72,11 +71,11 @@ protocol DropDownMenuDelegate{
         }
     }
     
-    lazy var rowHeight:CGFloat = { //菜单项的行高，默认和本控件一样高
+    public lazy var rowHeight:CGFloat = { //菜单项的行高，默认和本控件一样高
         return self.frame.size.height
     }()
     
-    lazy var optionsList:UITableView = { //下拉列表
+    public lazy var optionsList:UITableView = { //下拉列表
         let table = UITableView(frame: CGRectMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 0), style: .Plain)
         table.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         table.dataSource = self
@@ -87,19 +86,19 @@ protocol DropDownMenuDelegate{
         return table
     }()
     
-    @IBInspectable var editable:Bool = true { //允许用户编辑,默认允许
+    @IBInspectable public var editable:Bool = true { //允许用户编辑,默认允许
         didSet {
             contentTextField.enabled = editable
         }
     }
     
-    @IBInspectable var placeholder:String? {
+    @IBInspectable public var placeholder:String? {
         didSet {
             contentTextField.placeholder = placeholder
         }
     }
     
-    @IBInspectable var buttonImage:UIImage?{
+    @IBInspectable public var buttonImage:UIImage?{
         didSet {
             pullDownButton.setImage(buttonImage, forState: .Normal)
         }
@@ -116,12 +115,12 @@ protocol DropDownMenuDelegate{
         setUp()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setUp()
     }
     
-    func setUp() {
+    private func setUp() {
         contentTextField = UITextField(frame: CGRectZero)
         contentTextField.delegate = self
         addSubview(contentTextField)
@@ -135,7 +134,7 @@ protocol DropDownMenuDelegate{
         self.font = UIFont.systemFontOfSize(16)
     }
     
-    func showOrHide() {
+    private func showOrHide() {
         if isShown {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.pullDownButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI*2))
@@ -161,7 +160,7 @@ protocol DropDownMenuDelegate{
         
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         contentTextField.frame = CGRect(x: 15, y: 5, width: self.frame.size.width - 50, height: self.frame.size.height - 10)
@@ -176,7 +175,7 @@ protocol DropDownMenuDelegate{
 //        }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text {
             self.delegate?.dropDownMenu(self, didInput: text)
@@ -184,27 +183,28 @@ protocol DropDownMenuDelegate{
         return true
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "")
         cell.textLabel?.text = options[indexPath.row]
         cell.textLabel?.font = font
         cell.textLabel?.textColor = textColor
+        
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return rowHeight
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         contentTextField.text = options[indexPath.row]
         self.delegate?.dropDownMenu(self, didChoose:indexPath.row)
         showOrHide()

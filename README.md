@@ -2,7 +2,7 @@
 [![Cocoapods](http://img.shields.io/cocoapods/p/YYText.svg?style=flat)]()&nbsp;
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
-## DropDownMenu
+# DropDownMenu
 
 ## 简介
 用`swift`实现的一个方便、实用的下拉菜单控件，也可以用来实现
@@ -14,7 +14,6 @@
  - 可以根据需要决定是否允许用户手动编辑文字
  - 下拉按钮的图片、字体、文本颜色、边框等属性可以自己设置，你可以定制出你自己需要的样式
 
-	    
 ## 安装
 
 ### Cocoapods
