@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.name     = 'DropDownMenu'
   s.version  = '1.0.0'
   s.license  = 'MIT'
-  s.summary  = 'An open source DropDownMenu for iOS.'
+  s.summary  = 'An open source dropdown menu for iOS written in swift, it is easy to use in your project.'
   s.homepage = 'https://github.com/zhubch/DropDownMenu'
   s.author   = { 'zhubch' => 'cheng4741@gmail.com' }
   s.platform = :ios, "8.0"

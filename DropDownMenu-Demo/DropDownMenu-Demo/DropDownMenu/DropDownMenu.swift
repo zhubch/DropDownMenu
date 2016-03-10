@@ -98,7 +98,7 @@ public protocol DropDownMenuDelegate{
         }
     }
     
-    @IBInspectable public var buttonImage:UIImage?{
+    @IBInspectable public var buttonImage:UIImage?{ //下拉按钮的图片
         didSet {
             pullDownButton.setImage(buttonImage, forState: .Normal)
         }
@@ -120,7 +120,7 @@ public protocol DropDownMenuDelegate{
         setUp()
     }
     
-    private func setUp() {
+    func setUp() {
         contentTextField = UITextField(frame: CGRectZero)
         contentTextField.delegate = self
         addSubview(contentTextField)
@@ -134,7 +134,7 @@ public protocol DropDownMenuDelegate{
         self.font = UIFont.systemFontOfSize(16)
     }
     
-    private func showOrHide() {
+    func showOrHide() {
         if isShown {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.pullDownButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI*2))
