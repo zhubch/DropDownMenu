@@ -1,5 +1,5 @@
 //
-//  DropDownMenu.swift
+//  ZHDropDownMenu.swift
 //
 //  Created by zhubch on 3/8/16.
 //
@@ -26,14 +26,14 @@
 
 import UIKit
 
-public protocol DropDownMenuDelegate{
-    func dropDownMenu(menu:DropDownMenu!, didInput text:String!)
-    func dropDownMenu(menu:DropDownMenu!, didChoose index:Int)
+public protocol ZHDropDownMenuDelegate{
+    func dropDownMenu(menu:ZHDropDownMenu!, didInput text:String!)
+    func dropDownMenu(menu:ZHDropDownMenu!, didChoose index:Int)
 }
 
-@IBDesignable public class DropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
+@IBDesignable public class ZHDropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
     
-    public var delegate:DropDownMenuDelegate?
+    public var delegate:ZHDropDownMenuDelegate?
     
     public var options:Array<String> = [] //菜单项数据
     
@@ -98,7 +98,7 @@ public protocol DropDownMenuDelegate{
         }
     }
     
-    @IBInspectable public var buttonImage:UIImage?{
+    @IBInspectable public var buttonImage:UIImage?{ //下拉按钮的图片
         didSet {
             pullDownButton.setImage(buttonImage, forState: .Normal)
         }
@@ -120,7 +120,7 @@ public protocol DropDownMenuDelegate{
         setUp()
     }
     
-    private func setUp() {
+    func setUp() {
         contentTextField = UITextField(frame: CGRectZero)
         contentTextField.delegate = self
         addSubview(contentTextField)
@@ -134,7 +134,7 @@ public protocol DropDownMenuDelegate{
         self.font = UIFont.systemFontOfSize(16)
     }
     
-    private func showOrHide() {
+    func showOrHide() {
         if isShown {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.pullDownButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI*2))

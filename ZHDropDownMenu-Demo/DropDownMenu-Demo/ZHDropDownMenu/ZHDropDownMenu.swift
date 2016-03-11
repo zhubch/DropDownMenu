@@ -1,5 +1,5 @@
 //
-//  DropDownMenu.swift
+//  ZHDropDownMenu.swift
 //
 //  Created by zhubch on 3/8/16.
 //
@@ -26,14 +26,14 @@
 
 import UIKit
 
-public protocol DropDownMenuDelegate{
-    func dropDownMenu(menu:DropDownMenu!, didInput text:String!)
-    func dropDownMenu(menu:DropDownMenu!, didChoose index:Int)
+public protocol ZHDropDownMenuDelegate{
+    func dropDownMenu(menu:ZHDropDownMenu!, didInput text:String!)
+    func dropDownMenu(menu:ZHDropDownMenu!, didChoose index:Int)
 }
 
-@IBDesignable public class DropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
+@IBDesignable public class ZHDropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
     
-    public var delegate:DropDownMenuDelegate?
+    public var delegate:ZHDropDownMenuDelegate?
     
     public var options:Array<String> = [] //菜单项数据
     

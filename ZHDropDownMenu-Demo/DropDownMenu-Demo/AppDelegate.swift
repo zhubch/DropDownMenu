@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  DropDownMenu-Demo
+//  ZHDropDownMenu-Demo
 //
 //  Created by zhubch on 3/8/16.
 //
