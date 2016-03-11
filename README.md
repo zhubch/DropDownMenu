@@ -1,6 +1,6 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
+[![Cocoapods](https://camo.githubusercontent.com/f2bf3936c79baaf0e532a6a524b56ef6be5b78be/687474703a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f762f5959546578742e7376673f7374796c653d666c6174)](http://cocoapods.org/?q=%20ZHDropDownMenu)&nbsp;
 [![Cocoapods](http://img.shields.io/cocoapods/p/YYText.svg?style=flat)]()&nbsp;
-
 # ZHDropDownMenu
 
 ## 简介
@@ -62,5 +62,5 @@
 
 
 ## 许可证
-`DropDownMenu` 使用 MIT 许可证，详情见 LICENSE 文件。
+`ZHDropDownMenu` 使用 MIT 许可证，详情见 LICENSE 文件。
 
