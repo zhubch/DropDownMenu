@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  DropDownMenu-Demo
+//  ZHDropDownMenu-Demo
 //
 //  Created by zhubch on 3/8/16.
 //
@@ -26,17 +26,17 @@
 
 import UIKit
 
-class ViewController: UIViewController ,DropDownMenuDelegate{
+class ViewController: UIViewController ,ZHDropDownMenuDelegate{
     
-    @IBOutlet weak var menu1: DropDownMenu!
-    @IBOutlet weak var menu2: DropDownMenu!
-    @IBOutlet weak var menu3: DropDownMenu!
-    @IBOutlet weak var menu4: DropDownMenu!
+    @IBOutlet weak var menu1: ZHDropDownMenu!
+    @IBOutlet weak var menu2: ZHDropDownMenu!
+    @IBOutlet weak var menu3: ZHDropDownMenu!
+    @IBOutlet weak var menu4: ZHDropDownMenu!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "DropDownMenu"
+        self.title = "ZHDropDownMenu"
         
         menu1.options = ["北京","南昌","深圳","西安","上海","厦门","广州","北京","南昌","深圳","西安","上海","厦门","广州"] //设置下拉列表项数据
         menu1.editable = false //禁止编辑
@@ -59,12 +59,12 @@ class ViewController: UIViewController ,DropDownMenuDelegate{
     }
     
     //选择完后回调
-    func dropDownMenu(menu: DropDownMenu!, didChoose index: Int) {
+    func dropDownMenu(menu: ZHDropDownMenu!, didChoose index: Int) {
         print("\(menu) choosed at index \(index)")
     }
     
     //编辑完成后回调
-    func dropDownMenu(menu: DropDownMenu!, didInput text: String!) {
+    func dropDownMenu(menu: ZHDropDownMenu!, didInput text: String!) {
         print("\(menu) input text \(text)")
     }
 }

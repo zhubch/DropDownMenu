@@ -1,7 +1,7 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)&nbsp;
+[![Cocoapods](https://camo.githubusercontent.com/f2bf3936c79baaf0e532a6a524b56ef6be5b78be/687474703a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f762f5959546578742e7376673f7374796c653d666c6174)](http://cocoapods.org/?q=%20ZHDropDownMenu)&nbsp;
 [![Cocoapods](http://img.shields.io/cocoapods/p/YYText.svg?style=flat)]()&nbsp;
-
-# DropDownMenu
+# ZHDropDownMenu
 
 ## 简介
 用`swift`实现的一个方便、实用的下拉菜单控件，也可以用来实现
@@ -17,17 +17,17 @@
 
 ### Cocoapods
 
-1. 在 Podfile 中添加 `pod "DropDownMenu"`。
+1. 在 Podfile 中添加 `pod "ZHDropDownMenu"`。
 2. 执行 `pod install` 或 `pod update`。
 
 ### 手动安装
 
-1. 下载 DropDownMenu 文件夹内的所有内容。
-2. 将 DropDownMenu 文件夹添加(拖放)到你的工程。
+1. 下载 ZHDropDownMenu 文件夹内的所有内容。
+2. 将 ZHDropDownMenu 文件夹添加(拖放)到你的工程。
 
 ##使用
 
-1. 在storyboard中添加一个`View`然后设置Class为`DropDownMenu`，然后选中它，在右边进行设置。
+1. 在storyboard中添加一个`View`然后设置Class为`ZHDropDownMenu`，然后选中它，在右边进行设置。
 ![](ScreenShot/ScreenShot1.png)
 
 
@@ -46,12 +46,12 @@
 
 	```    
 	//选择完后回调
-    func dropDownMenu(menu: DropDownMenu!, didChoose index: Int) {
+    func dropDownMenu(menu: ZHDropDownMenu!, didChoose index: Int) {
         print("\(menu) choosed at index \(index)")
     }
     
     //编辑完成后回调
-    func dropDownMenu(menu: DropDownMenu!, didInput text: String!) {
+    func dropDownMenu(menu: ZHDropDownMenu!, didInput text: String!) {
         print("\(menu) input text \(text)")
     }
     ```
@@ -62,5 +62,5 @@
 
 
 ## 许可证
-`DropDownMenu` 使用 MIT 许可证，详情见 LICENSE 文件。
+`ZHDropDownMenu` 使用 MIT 许可证，详情见 LICENSE 文件。
 
