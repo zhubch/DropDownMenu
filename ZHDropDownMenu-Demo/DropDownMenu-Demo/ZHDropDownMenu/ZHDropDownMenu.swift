@@ -26,14 +26,16 @@
 
 import UIKit
 
-public protocol ZHDropDownMenuDelegate{
+public protocol ZHDropDownMenuDelegate:class{
     func dropDownMenu(menu:ZHDropDownMenu!, didInput text:String!)
     func dropDownMenu(menu:ZHDropDownMenu!, didChoose index:Int)
 }
 
 @IBDesignable public class ZHDropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
     
-    public var delegate:ZHDropDownMenuDelegate?
+    public weak var delegate:ZHDropDownMenuDelegate?
+    var inputClosure: ((ZHDropDownMenu , text: String) ->Void )?
+    var chooseClosure: ((ZHDropDownMenu , index: Int) ->Void )?
     
     public var options:Array<String> = [] //菜单项数据
     
@@ -179,6 +181,7 @@ public protocol ZHDropDownMenuDelegate{
         textField.resignFirstResponder()
         if let text = textField.text {
             self.delegate?.dropDownMenu(self, didInput: text)
+            self.inputClosure?(self, text: text)
         }
         return true
     }
@@ -207,6 +210,7 @@ public protocol ZHDropDownMenuDelegate{
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         contentTextField.text = options[indexPath.row]
         self.delegate?.dropDownMenu(self, didChoose:indexPath.row)
+        self.chooseClosure?(self, index: indexPath.row)
         showOrHide()
     }
 
