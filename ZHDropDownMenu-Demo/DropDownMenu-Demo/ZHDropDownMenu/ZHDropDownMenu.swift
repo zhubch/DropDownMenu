@@ -34,8 +34,10 @@ public protocol ZHDropDownMenuDelegate:class{
 @IBDesignable public class ZHDropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
     
     public weak var delegate:ZHDropDownMenuDelegate?
-    var inputClosure: ((ZHDropDownMenu , text: String) ->Void )?
-    var chooseClosure: ((ZHDropDownMenu , index: Int) ->Void )?
+    
+    public var inputClosure: ((ZHDropDownMenu , text: String) ->Void )?
+    
+    public var chooseClosure: ((ZHDropDownMenu , index: Int) ->Void )?
     
     public var options:Array<String> = [] //菜单项数据
     
