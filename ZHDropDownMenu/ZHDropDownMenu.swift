@@ -38,7 +38,9 @@ public protocol ZHDropDownMenuDelegate:class{
     public var inputClosure: ((ZHDropDownMenu , _ text: String) ->Void )?
     
     public var chooseClosure: ((ZHDropDownMenu , _ index: Int) ->Void )?
-
+  
+  
+    public var tableViewHeight:CGFloat = 0  // Allows to define a height of the tableView
     
     public var options:Array<String> = [] {//菜单项数据
         didSet {
@@ -188,7 +190,15 @@ public protocol ZHDropDownMenuDelegate:class{
             optionsList.reloadData()
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
-                self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: CGFloat(self.maxRowToShow == 0 ? self.options.count : self.maxRowToShow) * self.rowHeight)
+              
+                // Check if user speficies the height of the table
+                if self.tableViewHeight == 0{
+                  self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: CGFloat(self.maxRowToShow == 0 ? self.options.count : self.maxRowToShow) * self.rowHeight)
+                }
+                else{
+                  self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: CGFloat(self.maxRowToShow == 0 ? self.options.count : self.maxRowToShow) * self.rowHeight)
+                }
+              
                 }, completion: { (finished) -> Void in
                     if finished{
                         self.isShown = true
