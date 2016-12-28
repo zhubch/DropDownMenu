@@ -39,33 +39,38 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
         self.title = "ZHDropDownMenu"
         
         menu1.options = ["北京","南昌","深圳","西安","上海","厦门","广州","北京","南昌","深圳","西安","上海","厦门","广州"] //设置下拉列表项数据
-        menu1.editable = false //禁止编辑
-        
+        menu1.maxRowToShow = 3;
+
         menu2.options = ["男","女"]
-        menu2.editable = false
         menu2.showBorder = false //不显示边框
         
         menu3.options = ["1992","1993","1994","1995","1996","1997","1998"]
         menu3.defaultValue = "1992" //设置默认值
-        menu3.editable = false
         menu3.showBorder = false
         
         menu4.options = ["天气太冷了","没睡好觉，困死了","就是不想上班"];
-        
+        menu2.editable = true
+
         menu1.delegate = self //设置代理
         menu2.delegate = self
         menu3.delegate = self
         menu4.delegate = self
+
+//        let three = DispatchTime.now() + 3.0
+//        DispatchQueue.main.asyncAfter(deadline: three) {
+//            self.menu1.options = ["fsdgf","dfsdgf"]
+//        }
     }
     
     //选择完后回调
-    func dropDownMenu(menu: ZHDropDownMenu!, didChoose index: Int) {
+    func dropDownMenu(_ menu: ZHDropDownMenu!, didChoose index: Int) {
         print("\(menu) choosed at index \(index)")
     }
     
     //编辑完成后回调
-    func dropDownMenu(menu: ZHDropDownMenu!, didInput text: String!) {
+    func dropDownMenu(_ menu: ZHDropDownMenu!, didInput text: String!) {
         print("\(menu) input text \(text)")
     }
+    
 }
 
