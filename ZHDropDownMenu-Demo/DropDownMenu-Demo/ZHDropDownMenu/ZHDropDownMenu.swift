@@ -26,16 +26,21 @@
 
 import UIKit
 
-public protocol ZHDropDownMenuDelegate{
+public protocol ZHDropDownMenuDelegate:class{
     func dropDownMenu(_ menu:ZHDropDownMenu!, didInput text:String!)
     func dropDownMenu(_ menu:ZHDropDownMenu!, didChoose index:Int)
 }
 
 @IBDesignable open class ZHDropDownMenu: UIView , UITableViewDataSource ,UITableViewDelegate,UITextFieldDelegate{
     
-    open var delegate:ZHDropDownMenuDelegate?
+    public weak var delegate:ZHDropDownMenuDelegate?
     
-    open var options:Array<String> = [] {//菜单项数据
+    public var inputClosure: ((ZHDropDownMenu , _ text: String) ->Void )?
+    
+    public var chooseClosure: ((ZHDropDownMenu , _ index: Int) ->Void )?
+
+    
+    public var options:Array<String> = [] {//菜单项数据
         didSet {
             if isShown {
                 optionsList.reloadData()
@@ -51,7 +56,7 @@ public protocol ZHDropDownMenuDelegate{
         }
     }
     
-    open var maxRowToShow = 0 {// 当他不等于0时，最多同时显示maxRowToShow行选项，多出的选项需要滚动才能看到，可以用这个属性来控制列表高度
+    public var maxRowToShow = 0 {// 当他不等于0时，最多同时显示maxRowToShow行选项，多出的选项需要滚动才能看到，可以用这个属性来控制列表高度
         didSet {
             if isShown {
                 optionsList.reloadData()
@@ -79,13 +84,13 @@ public protocol ZHDropDownMenuDelegate{
         }
     }
     
-    open var font:UIFont?{ //输入框和下拉列表项中字体
+    public var font:UIFont?{ //输入框和下拉列表项中字体
         didSet {
             contentTextField.font = font
         }
     }
     
-    open var showBorder:Bool = true { //是否显示边框，默认显示
+    public var showBorder:Bool = true { //是否显示边框，默认显示
         didSet {
             if showBorder {
                 layer.borderColor = UIColor.lightGray.cgColor
@@ -101,7 +106,7 @@ public protocol ZHDropDownMenuDelegate{
         }
     }
     
-    open lazy var rowHeight:CGFloat = { //菜单项的行高，默认和本控件一样高
+    public lazy var rowHeight:CGFloat = { //菜单项的行高，默认和本控件一样高
         return self.frame.size.height
     }()
     
@@ -204,6 +209,7 @@ public protocol ZHDropDownMenuDelegate{
         textField.resignFirstResponder()
         if let text = textField.text {
             self.delegate?.dropDownMenu(self, didInput: text)
+            self.inputClosure?(self, text)
         }
         return true
     }
@@ -232,6 +238,7 @@ public protocol ZHDropDownMenuDelegate{
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         contentTextField.text = options[indexPath.row]
         self.delegate?.dropDownMenu(self, didChoose:indexPath.row)
+        self.chooseClosure?(self, indexPath.row)
         showOrHide()
     }
 }
