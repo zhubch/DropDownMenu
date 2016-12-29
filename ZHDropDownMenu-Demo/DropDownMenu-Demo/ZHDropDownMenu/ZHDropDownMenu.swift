@@ -41,33 +41,35 @@ public protocol ZHDropDownMenuDelegate:class{
 
     public var options:Array<String> = [] {//菜单项数据，设置后自动刷新列表
         didSet {
-            if isShown {
-                optionsList.reloadData()
-                UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                    self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
-                    self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: self._menuHeight)
-                }, completion: { (finished) -> Void in
-                    if finished{
-                        self.isShown = true
-                    }
-                })
-            }
+            reload()
         }
     }
     
-    public var menuHeight : CGFloat = 0.0 {// 菜单展开的最大高度，当它为0时全部展开
-        didSet {
-            if isShown {
-                optionsList.reloadData()
-                UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                    self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
-                    self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: self._menuHeight)
-                }, completion: { (finished) -> Void in
-                    if finished{
-                        self.isShown = true
-                    }
-                })
+    private var _rowHeight:CGFloat = 0
+    public var rowHeight:CGFloat { //菜单项的每一行行高，默认和本控件一样高，如果为0则和本空间初始高度一样
+        get{
+            if _rowHeight == 0{
+                return self.frame.size.height
             }
+            return _rowHeight
+        }
+        set{
+            _rowHeight = newValue
+            reload()
+        }
+    }
+    
+    private var _menuMaxHeight:CGFloat = 0
+    public var menuHeight : CGFloat{// 菜单展开的最大高度，当它为0时全部展开
+        get {
+            if _menuMaxHeight == 0{
+                return CGFloat(self.options.count) * self.rowHeight
+            }
+            return min(_menuMaxHeight, CGFloat(self.options.count) * self.rowHeight)
+        }
+        set {
+            _menuMaxHeight = newValue
+            reload()
         }
     }
     
@@ -83,7 +85,7 @@ public protocol ZHDropDownMenuDelegate:class{
         }
     }
     
-    @IBInspectable public var placeholder:String? {
+    @IBInspectable public var placeholder:String? { //占位符
         didSet {
             contentTextField.placeholder = placeholder
         }
@@ -123,22 +125,6 @@ public protocol ZHDropDownMenuDelegate:class{
         }
     }
     
-    public var rowHeight:CGFloat = 0 //菜单项的每一行行高，默认和本控件一样高，如果为0则和本空间初始高度一样
-    
-    private lazy var _rowHeight:CGFloat = {
-        if self.rowHeight == 0{
-            return self.frame.size.height
-        }
-        return self.rowHeight
-    }()
-    
-    private lazy var _menuHeight:CGFloat = {
-        if self.menuHeight == 0{
-            return CGFloat(self.options.count) * self._rowHeight
-        }
-        return min(self.menuHeight, CGFloat(self.options.count) * self._rowHeight)
-    }()
-    
     private lazy var optionsList:UITableView = { //下拉列表
         let table = UITableView(frame: CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height, width: self.frame.size.width, height: 0), style: .plain)
         table.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
@@ -149,7 +135,6 @@ public protocol ZHDropDownMenuDelegate:class{
         self.superview?.addSubview(table)
         return table
     }()
-    
     
     private var isShown:Bool = false
     
@@ -198,14 +183,24 @@ public protocol ZHDropDownMenuDelegate:class{
             optionsList.reloadData()
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
-                self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: self._menuHeight)
+                self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height:self.menuHeight)
                 }, completion: { (finished) -> Void in
                     if finished{
                         self.isShown = true
                     }
             }) 
         }
-        
+    }
+    
+    func reload() {
+        if !self.isShown {
+            return
+        }
+        optionsList.reloadData()
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+            self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height:self.menuHeight)
+        })
     }
     
     override open func layoutSubviews() {
@@ -242,7 +237,7 @@ public protocol ZHDropDownMenuDelegate:class{
     }
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return _rowHeight
+        return self.rowHeight
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

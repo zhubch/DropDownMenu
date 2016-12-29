@@ -39,7 +39,7 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
         self.title = "ZHDropDownMenu"
         
         menu1.options = ["北京","南昌","深圳","西安","上海","厦门","广州","北京","南昌","深圳","西安","上海","厦门","广州"] //设置下拉列表项数据
-        menu1.menuHeight = 100;//设置最大高度
+        menu1.menuHeight = 240;//设置最大高度
 
         menu2.options = ["男","女"]
         menu2.showBorder = false //不显示边框
@@ -50,13 +50,30 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
         menu3.defaultValue = "1992" //设置默认值
         menu3.showBorder = false
         
-        menu4.options = ["天气太冷了","没睡好觉，困死了","就是不想上班"];
+        menu4.options = ["天气太冷了","没睡好觉，困死了","就是不想上班"]
         menu4.editable = true //可编辑
 
         menu1.delegate = self //设置代理
         menu2.delegate = self
         menu3.delegate = self
         menu4.delegate = self
+        
+//        test() //测试能不能自动刷新UI
+    }
+    
+    func test() {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+            self.menu1.menuHeight = 150.0
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
+            self.menu1.options = ["天气太冷了","没睡好觉，困死了","就是不想上班"]
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 15) {
+            self.menu1.rowHeight = 50.0
+        }
     }
     
     //选择完后回调
