@@ -5,10 +5,13 @@
 
 ## 简介
 用`swift`实现的一个方便、实用的下拉菜单控件，也可以用来实现
-`ComboBox`的效果
+`NSComboBox`的效果。
+
+**支持swift 3.0**。在低版本的swift中可能无法直接使用。
+
 ## 效果演示
 ![](ScreenShot/ScreenShot2.gif)
-## 特色
+## 功能
  - 支持`Storyboard/Xib`可视化设置属性，所见即所得
  - 可以根据需要决定是否允许用户手动编辑文字
  - 下拉按钮的图片、字体、文本颜色、边框等属性可以自己设置，你可以定制出你自己需要的样式
@@ -25,7 +28,7 @@
 1. 下载 ZHDropDownMenu 文件夹内的所有内容。
 2. 将 ZHDropDownMenu 文件夹添加(拖放)到你的工程。
 
-##使用
+## 使用
 
 1. 在storyboard中添加一个`View`然后设置Class为`ZHDropDownMenu`，然后选中它，在右边进行设置。
 ![](ScreenShot/ScreenShot1.png)
