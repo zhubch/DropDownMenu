@@ -58,7 +58,7 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
         menu3.delegate = self
         menu4.delegate = self
         
-//        test() //测试能不能自动刷新UI
+//        test() //自动刷新UI
     }
     
     func test() {
@@ -68,7 +68,7 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
         }
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
-            self.menu1.options = ["天气太冷了","没睡好觉，困死了","就是不想上班"]
+            self.menu1.options = ["I can","Eat","Glass"]
         }
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 15) {
