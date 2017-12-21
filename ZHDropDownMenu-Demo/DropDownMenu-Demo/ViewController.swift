@@ -77,12 +77,12 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
     }
     
     //选择完后回调
-    func dropDownMenu(_ menu: ZHDropDownMenu!, didChoose index: Int) {
+    func dropDownMenu(_ menu: ZHDropDownMenu!, didSelect index: Int) {
         print("\(menu) choosed at index \(index)")
     }
     
     //编辑完成后回调
-    func dropDownMenu(_ menu: ZHDropDownMenu!, didInput text: String!) {
+    func dropDownMenu(_ menu: ZHDropDownMenu!, didEdit text: String!) {
         print("\(menu) input text \(text)")
     }
     
