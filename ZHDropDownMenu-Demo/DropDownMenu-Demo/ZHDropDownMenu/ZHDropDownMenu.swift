@@ -170,7 +170,7 @@ public protocol ZHDropDownMenuDelegate:class{
     func showOrHide() {
         if isShown {
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI*2))
+                self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi*2))
                 self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height: 0)
                 }, completion: { (finished) -> Void in
                     if finished{
@@ -182,7 +182,7 @@ public protocol ZHDropDownMenuDelegate:class{
             contentTextField.resignFirstResponder()
             optionsList.reloadData()
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+                self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
                 self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height:self.menuHeight)
                 }, completion: { (finished) -> Void in
                     if finished{
@@ -198,7 +198,7 @@ public protocol ZHDropDownMenuDelegate:class{
         }
         optionsList.reloadData()
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+            self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
             self.optionsList.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.size.height-0.5, width: self.frame.size.width, height:self.menuHeight)
         })
     }
