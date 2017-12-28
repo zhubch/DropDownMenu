@@ -27,8 +27,8 @@
 import UIKit
 
 public protocol ZHDropDownMenuDelegate: NSObjectProtocol {
-    func dropDownMenu(_ menu:ZHDropDownMenu!, didEdit text:String)
-    func dropDownMenu(_ menu:ZHDropDownMenu!, didSelect index:Int)
+    func dropDownMenu(_ menu:ZHDropDownMenu, didEdit text:String)
+    func dropDownMenu(_ menu:ZHDropDownMenu, didSelect index:Int)
 }
 
 @IBDesignable public class ZHDropDownMenu: UIView {
@@ -134,7 +134,7 @@ public protocol ZHDropDownMenuDelegate: NSObjectProtocol {
         return table
     }()
     
-    private var contentTextField: UITextField!
+    public var contentTextField: UITextField!
     
     private var pullDownButton: UIButton!
     

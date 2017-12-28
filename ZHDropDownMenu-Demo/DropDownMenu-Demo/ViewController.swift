@@ -26,7 +26,9 @@
 
 import UIKit
 
-class ViewController: UIViewController ,ZHDropDownMenuDelegate{
+class ViewController: UIViewController, ZHDropDownMenuDelegate{
+
+    
     
     @IBOutlet weak var menu1: ZHDropDownMenu!
     @IBOutlet weak var menu2: ZHDropDownMenu!
@@ -77,12 +79,12 @@ class ViewController: UIViewController ,ZHDropDownMenuDelegate{
     }
     
     //选择完后回调
-    func dropDownMenu(_ menu: ZHDropDownMenu!, didSelect index: Int) {
+    func dropDownMenu(_ menu: ZHDropDownMenu, didSelect index: Int) {
         print("\(menu) choosed at index \(index)")
     }
     
     //编辑完成后回调
-    func dropDownMenu(_ menu: ZHDropDownMenu!, didEdit text: String!) {
+    func dropDownMenu(_ menu: ZHDropDownMenu, didEdit text: String) {
         print("\(menu) input text \(text)")
     }
     
