@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'ZHDropDownMenu/Classes/**/*'
+  s.source_files = 'ZHDropDownMenu/Classes/*'
   
    s.resource_bundles = {
    'ZHDropDownMenu' => ['ZHDropDownMenu/Assets/*.png']
