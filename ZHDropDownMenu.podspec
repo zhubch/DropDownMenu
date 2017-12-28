@@ -1,7 +1,7 @@
 #ZHDropDownMenu.podspec
 Pod::Spec.new do |s|
   s.name     = 'ZHDropDownMenu'
-  s.version  = '1.0.0'
+  s.version  = '1.0.1'
   s.license  = 'MIT'
   s.summary  = 'An open source dropdown menu for iOS written in swift, it is easy to use in your project.'
   s.homepage = 'https://github.com/zhubch/ZHDropDownMenu'
