@@ -1,0 +1,22 @@
+{
+  "name": "ZHDropDownMenu",
+  "version": "0.1.0",
+  "summary": "A short description of ZHDropDownMenu.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/cheng4741@qq.com/ZHDropDownMenu",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "cheng4741@qq.com": "cheng4741@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/cheng4741@qq.com/ZHDropDownMenu.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ZHDropDownMenu/Classes/**/*"
+}

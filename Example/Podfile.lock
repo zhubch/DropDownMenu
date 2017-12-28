@@ -1,0 +1,16 @@
+PODS:
+  - ZHDropDownMenu (0.1.0)
+
+DEPENDENCIES:
+  - ZHDropDownMenu (from `../`)
+
+EXTERNAL SOURCES:
+  ZHDropDownMenu:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ZHDropDownMenu: 9ce86a987651420d6b69ddba12feee8c1ad9afd5
+
+PODFILE CHECKSUM: 43ba16622c953ab38de8c1fe54d4963646952eb9
+
+COCOAPODS: 1.3.0

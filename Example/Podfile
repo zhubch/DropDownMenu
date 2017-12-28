@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ZHDropDownMenu_Example' do
+  pod 'ZHDropDownMenu', :path => '../'
+
+  target 'ZHDropDownMenu_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

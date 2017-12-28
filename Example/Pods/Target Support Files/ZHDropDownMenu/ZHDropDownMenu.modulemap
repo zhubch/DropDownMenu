@@ -1,0 +1,6 @@
+framework module ZHDropDownMenu {
+  umbrella header "ZHDropDownMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}
