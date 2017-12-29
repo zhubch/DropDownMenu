@@ -1,9 +1,8 @@
 {
   "name": "ZHDropDownMenu",
-  "version": "0.1.0",
-  "summary": "A short description of ZHDropDownMenu.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/cheng4741@qq.com/ZHDropDownMenu",
+  "version": "1.0.0",
+  "summary": "An open source dropdown menu for iOS written in swift, it is easy to use in your project",
+  "homepage": "https://github.com/zhubinchen/DropDownMenu",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +11,16 @@
     "cheng4741@qq.com": "cheng4741@qq.com"
   },
   "source": {
-    "git": "https://github.com/cheng4741@qq.com/ZHDropDownMenu.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/zhubinchen/DropDownMenu.git",
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "ZHDropDownMenu/Classes/**/*"
+  "source_files": "ZHDropDownMenu/*.swift",
+  "resources": "ZHDropDownMenu/*.png",
+  "requires_arc": true,
+  "xcconfig": {
+    "CLANG_MODULES_AUTOLINK": "YES"
+  }
 }

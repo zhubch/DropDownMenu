@@ -1,5 +1,5 @@
 PODS:
-  - ZHDropDownMenu (0.1.0)
+  - ZHDropDownMenu (1.0.0)
 
 DEPENDENCIES:
   - ZHDropDownMenu (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ZHDropDownMenu: 9ce86a987651420d6b69ddba12feee8c1ad9afd5
+  ZHDropDownMenu: 0ce0109ccfb0e99c123cb009d4c31e8f0e5927a4
 
 PODFILE CHECKSUM: 43ba16622c953ab38de8c1fe54d4963646952eb9
 

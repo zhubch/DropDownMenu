@@ -11,12 +11,14 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/zhubinchen/DropDownMenu.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.platform              = :ios, "8.0"
 
-  s.source_files = 'ZHDropDownMenu/Classes/*'
+  s.source_files = 'ZHDropDownMenu/*.swift'
+  s.resources = 'ZHDropDownMenu/*.png'
   
-   s.resource_bundles = {
-   'ZHDropDownMenu' => ['ZHDropDownMenu/Assets/*.png']
-  }
+  s.requires_arc = true
+  s.xcconfig = { 'CLANG_MODULES_AUTOLINK' => 'YES' }
+
 
 
 end
